@@ -1,11 +1,8 @@
-input_data = [(5, 3, 1), 5.7, 'thirteen', 10, {1: 10}]
-
 def func(*args):
-    try:
-        num_sum = sum(args)
-    except TypeError:
-        pass
+    num_sum = 0
+    for i in args:
+        try:
+            num_sum += i
+        except TypeError:
+            continue
     return num_sum
-
-# print(func(5, 1, 7))
-print(func(input_data))

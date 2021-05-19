@@ -37,18 +37,29 @@ students = [
     {'name': 'Sultan', 'age': 13, 'course': 'python', 'gender': 'Male'},
 ]
 
-python_course = [x['name'] for x in students if x['course'] == 'python']
-javascript_course = [x['name'] for x in students if x['course'] == 'javascript'] 
-java_course = [x['name'] for x in students if x['course'] == 'java'] 
-list_1 = ['python', 'javascript', 'java']
-list_2 = [python_course, javascript_course, java_course]
-courses = {keys: values for keys in list_1 for values in list_2}
+courses = {'python': [], 'java': [], 'javascript': []}
 
-# for x in students:
-#     courses = set(x['course']))
-    # if x['course'] == x['course']:
-    #     courses.append(x['course'])
-    
-# courses = [x['course'] for x in students]
-print(java_course)
-print(courses)
+for i in students:
+    if i['course'] in courses:
+        courses[i['course']].append(i['name'])
+# print(courses)
+
+names_ages = {x['name']: x['age'] for x in students}
+# print(names_ages)
+
+names = ['Janyl', 'Nursultan', 'Meerim', 'Emir', 'Susann', 'Marcus', 'Aidin',
+         'Aigerim', 'Angela', 'Albert', 'Jyldyz', 'Doe', 'Gloria', 'Aliaskar',
+         'Martin', 'John', 'Andrew', 'Steve', 'Johnathan', 'Adyl', 'Chyngyz',
+         'Michael', 'Atay', 'Mikkel', 'Agnes', 'Aidana', 'Sultan', 'Nash',
+         'Nicolas', 'Mirbek', 'Aktan', 'Emirlan', 'Jennifer', 'Eniston',
+         'Alex', 'Mark']
+
+
+def func(list_1, dict_1):
+    for i in list_1:
+        try:
+            print(f'{i} - {dict_1[i]}')
+        except KeyError:
+            print(f'Имени {i} не существует в словаре')
+            continue
+func(names, names_ages)
